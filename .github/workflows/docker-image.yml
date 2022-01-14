@@ -36,6 +36,6 @@ jobs:
       uses: lakuapik/gh-actions-http-status@v1
       with:
         # List website urls in JSON 
-        sites: '["localhost:8000/", "localhost:8000/erro"]'
+        sites: '["http://localhost:8000/", "http://localhost:8000/erro"]'
         # List expected HTTP status codes in JSON
         expected: '[200, 400]'
