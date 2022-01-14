@@ -4,9 +4,9 @@ FROM python:3.9.6-alpine
 
 WORKDIR /app
 
-CMD [ "py", "-m" , "venv", "venv" ]
+CMD [ "python3", "-m" , "venv", "venv" ]
 
-CMD [ "venv\Scripts\activate" ]
+CMD [ "source", "venv/bin/activate" ]
 
 
 COPY requirements.txt requirements.txt
