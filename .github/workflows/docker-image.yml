@@ -1,8 +1,12 @@
 name: Docker Image CI
 
 on:
-  workflow_dispatch:
+  push:
+    branches: [ Gustavo-Zamboni ]
+  pull_request:
+    branches: [ Gustavo-Zamboni ]
 
+  workflow_dispatch:
 jobs:
 
   build:
