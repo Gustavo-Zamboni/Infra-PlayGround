@@ -20,6 +20,9 @@ jobs:
 
     - name: Run within Docker
       run: docker run -d -p 8000:8000 python-docker
+      
+    - name: sleep
+      run: sleep 5s
         
     - name: HTTP Status
       # You may pin to the exact commit or the version.
