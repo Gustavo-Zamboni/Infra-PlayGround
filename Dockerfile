@@ -14,5 +14,6 @@ COPY requirements.txt requirements.txt
 COPY . .
 
 RUN pip3 install -r requirements.txt
+RUN pip3 install uvicorn
 
 CMD [ "uvicorn", "server:app", "--reload", "--host=0.0.0.0" ]
