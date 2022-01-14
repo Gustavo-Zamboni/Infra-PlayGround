@@ -19,7 +19,7 @@ jobs:
       run: docker build . --file Dockerfile --tag python-docker:$(date +%s)
 
     - name: Run within Docker
-      run: docker run -d -p 8000:8000 python-docker
+      run: docker run -d -p 8000:8000 python-docker:$(date +%s)
         
     - name: HTTP Status
       # You may pin to the exact commit or the version.
