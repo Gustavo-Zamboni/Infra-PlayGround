@@ -21,6 +21,9 @@ jobs:
     - name: Run within Docker
       run: docker run -d -p 8000:8000 python-docker
       
+    - name: logs
+      run: docker logs python-docker
+      
     - name: sleep
       run: sleep 5s
         
