@@ -19,7 +19,7 @@ jobs:
       run: docker build . --file Dockerfile --tag python-docker
 
     - name: Run within Docker
-      run: docker run -d -p 8000:8000 -n teste python-docker
+      run: docker run --name teste -d -p 8000:8000 python-docker
       
     - name: logs
       run: docker logs teste
