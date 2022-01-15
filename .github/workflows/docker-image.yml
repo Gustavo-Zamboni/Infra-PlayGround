@@ -29,13 +29,13 @@ jobs:
       run: docker logs teste
       
     - run: curl localhost:8000
-        
-    - name: HTTP Status
+
+    - name: Uptime Action
       # You may pin to the exact commit or the version.
-      # uses: lakuapik/gh-actions-http-status@705c34b4307b8a0354a431b75bb5910b6562dd20
-      uses: lakuapik/gh-actions-http-status@v1
+      # uses: srt32/uptime@958231f4d95c117f08eb0fc70907e80d0dfedf2b
+      uses: srt32/uptime@v0.2.1
       with:
-        # List website urls in JSON 
-        sites: '["http://localhost:8000/", "http://localhost:8000/erro"]'
-        # List expected HTTP status codes in JSON
-        expected: '[200, 400]'
+        # which url to hit
+        url-to-hit: "localhost:8000/"
+        # which http response statuses are expected
+        expected-statuses: "200,400"
