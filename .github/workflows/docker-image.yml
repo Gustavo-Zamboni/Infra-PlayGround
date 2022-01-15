@@ -30,12 +30,10 @@ jobs:
       
     - run: curl localhost:8000
 
-    - name: Uptime Action
-      # You may pin to the exact commit or the version.
-      # uses: srt32/uptime@958231f4d95c117f08eb0fc70907e80d0dfedf2b
-      uses: srt32/uptime@v0.2.1
+    - name: Http_Status_Code
+      id: Http_Status_Code
+      run: echo "::set-output name=status::$(curl -o /dev/null -s -w "%{http_code}\n" localhost:8000)"
+    - uses: nick-invision/assert-action@v1
       with:
-        # which url to hit
-        url-to-hit: "https://localhost:8000/"
-        # which http response statuses are expected
-        expected-statuses: "200,400"
+        expected: 200
+        actual: ${{ steps.Http_Status_Code.outputs.status }}
