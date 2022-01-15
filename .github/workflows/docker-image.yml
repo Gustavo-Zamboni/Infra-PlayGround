@@ -30,10 +30,19 @@ jobs:
       
     - run: curl localhost:8000
 
-    - name: Http_Status_Code
-      id: Http_Status_Code
-      run: echo "::set-output name=status::$(curl -o /dev/null -s -w "%{http_code}\n" localhost:8000)"
+    - name: Http_Status_Code_200
+      id: Http_Status_Code_200
+      run: echo "::set-output name=status::$(curl -o /dev/null -s -w "%{http_code}\n" localhost:8000/)"
     - uses: nick-invision/assert-action@v1
       with:
         expected: 200
-        actual: ${{ steps.Http_Status_Code.outputs.status }}
+        actual: ${{ steps.Http_Status_Code_200.outputs.status }}
+        
+    - name: Http_Status_Code_400
+      id: Http_Status_Code_400
+      run: echo "::set-output name=status::$(curl -o /dev/null -s -w "%{http_code}\n" localhost:8000/erro)"
+    - uses: nick-invision/assert-action@v1
+      with:
+        expected: 400
+        actual: ${{ steps.Http_Status_Code_400.outputs.status }}
+      
